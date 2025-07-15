@@ -1,0 +1,156 @@
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Link, Routes, Route } from "react-router-dom";
+
+function Header() {
+  return (
+    <header className="p-6 flex justify-between items-center border-b">
+      <h1 className="text-2xl font-bold">Innerside.Y</h1>
+      <nav className="space-x-4 text-sm">
+        <Link to="/" className="hover:underline">Home</Link>
+        <Link to="/updates" className="hover:underline">Updates</Link>
+        <Link to="/poems" className="hover:underline">My Poems</Link>
+        <Link to="/playlists" className="hover:underline">My Playlists</Link>
+        <Link to="/thoughts" className="hover:underline">My Inner Thoughts</Link>
+        <Link to="/gallery" className="hover:underline">Gallery</Link>
+        <Link to="/contact" className="hover:underline">Contact</Link>
+        <Link to="/links" className="hover:underline">Other Links</Link>
+      </nav>
+    </header>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="text-center p-4 text-sm text-gray-500 border-t">&copy; 2025 Innerside.Y</footer>
+  );
+}
+
+function Home() {
+  return (
+    <main className="p-8 max-w-4xl mx-auto space-y-12">
+      <section className="text-center">
+        <h2 className="text-4xl font-semibold mb-4">Welcome to Innerside.Y</h2>
+        <p className="text-gray-600">A quiet space for poems, playlists, and inner thoughts.</p>
+      </section>
+      <section>
+        <h3 className="text-2xl mb-4 font-medium">Featured Poem</h3>
+        <Card>
+          <CardContent className="p-6">
+            <p className="italic">"Some nights, the silence speaks louder than words ever could."</p>
+          </CardContent>
+        </Card>
+      </section>
+    </main>
+  );
+}
+
+function Updates() {
+  return (
+    <main className="p-8 max-w-3xl mx-auto">
+      <h2 className="text-3xl font-semibold mb-6">Updates</h2>
+      <ul className="space-y-4">
+        <li>📝 New poem uploaded on July 15th, 2025.</li>
+        <li>🎵 Playlist 'Night Whispers' added on July 10th, 2025.</li>
+        <li>💭 New thought entry: 'The weight of quiet moments.'</li>
+      </ul>
+    </main>
+  );
+}
+
+function Poems() {
+  return (
+    <main className="p-8 max-w-3xl mx-auto space-y-6">
+      <h2 className="text-3xl font-semibold mb-6">My Poems</h2>
+      <Card>
+        <CardContent className="p-6 space-y-2">
+          <h3 className="text-xl font-medium">Echoes</h3>
+          <p>In the stillness of a midnight room,<br />I hear echoes of a forgotten tune.</p>
+        </CardContent>
+      </Card>
+    </main>
+  );
+}
+
+function Playlists() {
+  return (
+    <main className="p-8 max-w-3xl mx-auto space-y-6">
+      <h2 className="text-3xl font-semibold mb-6">My Playlists</h2>
+      <Card>
+        <CardContent className="p-6">
+          <p>🎧 <strong>Night Whispers</strong>: A playlist of mellow, moody tracks for quiet evenings. (embed Spotify/YouTube link here)</p>
+        </CardContent>
+      </Card>
+    </main>
+  );
+}
+
+function Thoughts() {
+  return (
+    <main className="p-8 max-w-3xl mx-auto space-y-6">
+      <h2 className="text-3xl font-semibold mb-6">My Inner Thoughts</h2>
+      <Card>
+        <CardContent className="p-6">
+          <p>Sometimes, even silence carries the weight of a thousand words.</p>
+        </CardContent>
+      </Card>
+    </main>
+  );
+}
+
+function Gallery() {
+  return (
+    <main className="p-8 max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+      <Card><CardContent className="p-6">Image 1 — quote or mood here.</CardContent></Card>
+      <Card><CardContent className="p-6">Image 2 — poem snippet.</CardContent></Card>
+    </main>
+  );
+}
+
+function Contact() {
+  return (
+    <main className="p-8 max-w-2xl mx-auto">
+      <h2 className="text-3xl font-semibold mb-6">Contact</h2>
+      <form className="space-y-4">
+        <Input type="text" placeholder="Your Name" />
+        <Input type="email" placeholder="Your Email" />
+        <Textarea placeholder="Your Message" rows={5} />
+        <Button type="submit">Send Message</Button>
+      </form>
+    </main>
+  );
+}
+
+function OtherLinks() {
+  return (
+    <main className="p-8 max-w-2xl mx-auto space-y-4">
+      <h2 className="text-3xl font-semibold mb-6">Other Links</h2>
+      <ul className="list-disc list-inside space-y-2">
+        <li><a href="#" className="text-blue-500 hover:underline">Instagram</a></li>
+        <li><a href="#" className="text-blue-500 hover:underline">Spotify</a></li>
+        <li><a href="#" className="text-blue-500 hover:underline">YouTube</a></li>
+      </ul>
+    </main>
+  );
+}
+
+export default function InnersideY() {
+  return (
+    <div className="min-h-screen bg-white text-black font-sans">
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/updates" element={<Updates />} />
+        <Route path="/poems" element={<Poems />} />
+        <Route path="/playlists" element={<Playlists />} />
+        <Route path="/thoughts" element={<Thoughts />} />
+        <Route path="/gallery" element={<Gallery />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/links" element={<OtherLinks />} />
+      </Routes>
+      <Footer />
+    </div>
+  );
+}
